@@ -208,3 +208,989 @@ body {
     color: #7676ff;
     font-size: 0.7rem;
 }
+
+/* 🌲 ESTILOS DA FLORESTA DE HABILIDADES */
+
+.skills-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* 🎯 LISTA DE HABILIDADES */
+.skills-list {
+    background: rgba(20, 20, 50, 0.8);
+    border: 3px solid #4a4ae6;
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+.skills-list h3 {
+    color: #4a4ae6;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.subtitle {
+    color: #a0a0ff;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 0.8rem;
+}
+
+.skill-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    background: rgba(42, 42, 90, 0.6);
+    border: 2px solid #6464ff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.skill-item:hover {
+    background: rgba(84, 84, 180, 0.8);
+    transform: translateX(5px);
+    border-color: #a0a0ff;
+}
+
+.skill-item.active {
+    background: rgba(74, 74, 230, 0.3);
+    border-color: #ffd700;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+}
+
+.skill-icon {
+    font-size: 1.5rem;
+    width: 30px;
+    text-align: center;
+}
+
+.skill-name {
+    flex: 1;
+    font-weight: bold;
+}
+
+.skill-level {
+    color: #ffd700;
+    font-size: 0.8rem;
+}
+
+/* 📖 DETALHES DA HABILIDADE */
+.skill-details {
+    background: rgba(20, 20, 50, 0.8);
+    border: 3px solid #4a4ae6;
+    padding: 2rem;
+    border-radius: 8px;
+    min-height: 400px;
+}
+
+.details-placeholder {
+    text-align: center;
+    color: #a0a0ff;
+    padding: 4rem 2rem;
+}
+
+.details-placeholder .hint {
+    font-size: 0.8rem;
+    margin-top: 1rem;
+    color: #7676ff;
+}
+
+.skill-info h3 {
+    color: #ffd700;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.skill-meta {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #4a4ae6;
+}
+
+.skill-type {
+    color: #4a4ae6;
+    font-weight: bold;
+}
+
+.skill-mp {
+    color: #ff6b6b;
+}
+
+#skill-description {
+    line-height: 1.8; 
+    margin-bottom: 2rem;
+    color: #e0e0ff;
+    font-size: 0.9rem;
+    padding: 0 0.5rem;
+}
+
+.skill-info p {
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+
+.skill-details {
+    color: #f0f0ff; 
+}
+
+
+
+#skill-description {
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+.skill-meta {
+    line-height: 1.6;
+}
+
+.stat-label {
+    line-height: 1.4;
+}
+
+/* 🏆 SISTEMA DE CONQUISTAS */
+
+.achievement-popup {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(45deg, #4a4ae6, #7676ff);
+    border: 3px solid #ffd700;
+    border-radius: 10px;
+    padding: 1rem;
+    color: white;
+    z-index: 1000;
+    transform: translateX(400px);
+    transition: transform 0.5s ease-in-out;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
+    max-width: 300px;
+}
+
+.achievement-popup.show {
+    transform: translateX(0);
+}
+
+.achievement-content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.achievement-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+}
+
+.achievement-text {
+    flex: 1;
+}
+
+.achievement-title {
+    font-size: 0.8rem;
+    color: #ffd700;
+    margin-bottom: 0.2rem;
+}
+
+.achievement-name {
+    font-weight: bold;
+    margin-bottom: 0.2rem;
+    font-size: 1rem;
+}
+
+.achievement-desc {
+    font-size: 0.8rem;
+    opacity: 0.9;
+}
+
+/* 💾 BOTÃO CONTINUE ESTILIZADO */
+.rpg-btn.continue-btn {
+    background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+    border-color: #ffd700;
+}
+
+.rpg-btn.continue-btn:hover {
+    background: linear-gradient(45deg, #ff8e8e, #ffaaaa);
+}
+
+/* 🔍 ESTILOS DO PROGRESSO DE SKILLS */
+
+.skills-progress {
+    background: rgba(255, 215, 0, 0.1);
+    border: 2px solid #ffd700;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    margin: 1rem 0;
+    text-align: center;
+    color: #ffd700;
+    font-size: 0.8rem;
+    animation: pulse-gold 2s infinite;
+}
+
+@keyframes pulse-gold {
+    0%, 100% { border-color: #ffd700; box-shadow: 0 0 5px rgba(255, 215, 0, 0.3); }
+    50% { border-color: #ffed4e; box-shadow: 0 0 15px rgba(255, 215, 0, 0.6); }
+}
+
+/* 🎯 INDICADOR VISUAL NAS SKILLS JÁ VISTAS */
+.skill-item.discovered {
+    border-left: 4px solid #4a4ae6;
+}
+
+.skill-item.discovered::before {
+    content: "👁️";
+    margin-right: 0.5rem;
+    font-size: 0.8rem;
+}
+
+/* 🏆 ESTILO PARA QUANDO CONQUISTA É DESBLOQUEADA */
+.skill-item.completed {
+    background: rgba(255, 215, 0, 0.1);
+    border: 2px solid #ffd700;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from { box-shadow: 0 0 5px rgba(255, 215, 0, 0.5); }
+    to { box-shadow: 0 0 20px rgba(255, 215, 0, 0.8); }
+}
+
+
+/* 🏠 Experience village style*/
+
+/* 🏠 EXPERIENCE VILLAGE STYLE - SCROLLBAR HIDDEN */
+
+#village {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.village-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+    flex: 1;
+    overflow-y: auto;
+    
+    /* 🔥 ESCONDE A SCROLLBAR EM TODOS OS NAVEGADORES */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+}
+
+/* 🔥 ESCONDE A SCROLLBAR NO CHROME, SAFARI E EDGE */
+.village-container::-webkit-scrollbar {
+    display: none;
+}
+
+.navigation-buttons {
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+    text-align: center;
+    width: 100%;
+    z-index: 100;
+}
+
+.village-container h2 {
+    text-align: center;
+    color: #4a4ae6;
+    margin-bottom: 0.5rem;
+}
+
+.village-container .subtitle {
+    text-align: center;
+    color: #a0a0ff;
+    margin-bottom: 3rem;
+    font-size: 1rem;
+}
+
+/* ⏰ LINHA DO TEMPO */
+.timeline {
+    position: relative;
+    margin: 3rem 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 30px;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(to bottom, #4a4ae6, #7676ff);
+    border-radius: 3px;
+}
+
+.timeline-item {
+    display: flex;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.timeline-marker {
+    width: 60px;
+    height: 60px;
+    background: rgba(42, 42, 90, 0.8);
+    border: 3px solid #4a4ae6;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    z-index: 2;
+    flex-shrink: 0;
+    margin-right: 2rem;
+}
+
+.timeline-content {
+    flex: 1;
+    background: rgba(20, 20, 50, 0.6);
+    border: 2px solid #4a4ae6;
+    border-radius: 10px;
+    padding: 1.5rem;
+    position: relative;
+}
+
+.timeline-content::before {
+    content: '';
+    position: absolute;
+    left: -10px;
+    top: 30px;
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 10px solid #4a4ae6;
+}
+
+.timeline-content h3 {
+    color: #ffd700;
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.timeline-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.company {
+    color: #4a4ae6;
+    font-weight: bold;
+}
+
+.period {
+    color: #a0a0ff;
+    background: rgba(74, 74, 230, 0.2);
+    padding: 0.2rem 0.5rem;
+    border-radius: 3px;
+}
+
+.timeline-description {
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    color: #e0e0ff;
+}
+
+.timeline-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.skill-tag {
+    background: rgba(74, 74, 230, 0.3);
+    color: #a0a0ff;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    border: 1px solid #4a4ae6;
+}
+
+/* 📊 ESTATÍSTICAS */
+.experience-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin: 3rem 0;
+}
+
+.stat-card {
+    background: rgba(42, 42, 90, 0.6);
+    border: 2px solid #4a4ae6;
+    border-radius: 10px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    border-color: #ffd700;
+}
+
+.stat-number {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ffd700;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    color: #a0a0ff;
+    font-size: 0.9rem;
+}
+
+/* 📱 RESPONSIVIDADE */
+@media (max-width: 768px) {
+    .timeline::before {
+        left: 25px;
+    }
+    
+    .timeline-marker {
+        width: 50px;
+        height: 50px;
+        margin-right: 1rem;
+    }
+    
+    .experience-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .timeline-meta {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .village-container {
+        padding: 1rem;
+    }
+}
+
+/* 🏰 PROJECTS DUNGEON STYLES */
+
+#dungeon {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: linear-gradient(135deg, #1a0a0a 0%, #2a1a1a 100%);
+}
+
+.dungeon-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem;
+    flex: 1;
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.dungeon-container::-webkit-scrollbar {
+    display: none;
+}
+
+.dungeon-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.dungeon-header h2 {
+    color: #ff6b6b;
+    text-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
+    margin-bottom: 0.5rem;
+}
+
+/* 🎯 ÁREA DE BATALHA */
+.battle-area {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* 🐉 INIMIGO ATUAL */
+.enemy-display {
+    background: rgba(42, 20, 20, 0.8);
+    border: 3px solid #ff6b6b;
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    position: relative;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.enemy-sprite {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    animation: float 3s ease-in-out infinite;
+}
+
+.enemy-health-bar {
+    width: 100%;
+    height: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 2px solid #333;
+    border-radius: 10px;
+    margin: 1rem 0;
+    overflow: hidden;
+}
+
+.health-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #ff6b6b, #ff8e8e);
+    border-radius: 8px;
+    width: 100%;
+    transition: width 0.5s ease;
+}
+
+.enemy-info h3 {
+    color: #ffd700;
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+}
+
+.enemy-info p {
+    color: #e0e0ff;
+    line-height: 1.5;
+}
+
+/* 📜 LISTA DE PROJETOS */
+.projects-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.project-enemy {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: rgba(42, 42, 90, 0.6);
+    border: 2px solid #6464ff;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.project-enemy:hover {
+    background: rgba(84, 84, 180, 0.8);
+    transform: translateX(5px);
+    border-color: #a0a0ff;
+}
+
+.project-enemy.active {
+    background: rgba(255, 107, 107, 0.2);
+    border-color: #ff6b6b;
+    box-shadow: 0 0 15px rgba(255, 107, 107, 0.3);
+}
+
+.enemy-icon {
+    font-size: 1.5rem;
+    width: 30px;
+    text-align: center;
+}
+
+.enemy-title {
+    flex: 1;
+    font-weight: bold;
+    color: #e0e0ff;
+}
+
+.enemy-level {
+    color: #ffd700;
+    font-size: 0.8rem;
+    background: rgba(255, 215, 0, 0.1);
+    padding: 0.3rem 0.6rem;
+    border-radius: 10px;
+}
+
+/* ⚔️ AÇÕES DE BATALHA */
+.battle-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.battle-btn {
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+.attack-btn {
+    background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+    color: white;
+}
+
+.attack-btn:hover {
+    background: linear-gradient(45deg, #ff8e8e, #ffaaaa);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+}
+
+.inspect-btn {
+    background: linear-gradient(45deg, #4a4ae6, #7676ff);
+    color: white;
+}
+
+.inspect-btn:hover {
+    background: linear-gradient(45deg, #7676ff, #a0a0ff);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(74, 74, 230, 0.4);
+}
+
+.next-btn {
+    background: linear-gradient(45deg, #51cf66, #69db7c);
+    color: white;
+}
+
+.next-btn:hover {
+    background: linear-gradient(45deg, #69db7c, #8ce99a);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(81, 207, 102, 0.4);
+}
+
+/* 📖 DETALHES DO PROJETO */
+.project-details {
+    background: rgba(20, 20, 50, 0.9);
+    border: 3px solid #4a4ae6;
+    border-radius: 15px;
+    padding: 2rem;
+    margin-top: 2rem;
+}
+
+.details-content h3 {
+    color: #ffd700;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.detail-item {
+    display: flex;
+    margin-bottom: 1rem;
+    align-items: flex-start;
+}
+
+.detail-item.full-width {
+    flex-direction: column;
+}
+
+.detail-label {
+    color: #4a4ae6;
+    font-weight: bold;
+    min-width: 120px;
+    flex-shrink: 0;
+}
+
+.detail-value {
+    color: #e0e0ff;
+    line-height: 1.6;
+    flex: 1;
+}
+
+/* 🎭 ANIMAÇÕES */
+@keyframes attackAnimation {
+    0% { transform: translateX(0) scale(1); }
+    25% { transform: translateX(-20px) scale(1.1); }
+    50% { transform: translateX(20px) scale(1.2); }
+    75% { transform: translateX(-10px) scale(1.1); }
+    100% { transform: translateX(0) scale(1); }
+}
+
+@keyframes damageFlash {
+    0%, 100% { background-color: transparent; }
+    50% { background-color: rgba(255, 107, 107, 0.3); }
+}
+
+.attack-effect {
+    animation: attackAnimation 0.5s ease, damageFlash 0.5s ease;
+}
+
+/* 📱 RESPONSIVIDADE */
+@media (max-width: 768px) {
+    .battle-area {
+        grid-template-columns: 1fr;
+    }
+    
+    .battle-actions {
+        flex-direction: column;
+    }
+    
+    .battle-btn {
+        width: 100%;
+    }
+    
+    .detail-item {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .detail-label {
+        min-width: auto;
+    }
+}
+/* 💬 MENSAGENS DA MASMORRA */
+.dungeon-message {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.8rem;
+    z-index: 1000;
+    animation: slideDown 0.3s ease;
+}
+
+.dungeon-message.attack {
+    background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+    color: white;
+    border: 2px solid #ffd700;
+}
+
+.dungeon-message.victory {
+    background: linear-gradient(45deg, #51cf66, #69db7c);
+    color: white;
+    border: 2px solid #ffd700;
+}
+
+.dungeon-message.warning {
+    background: linear-gradient(45deg, #ffd43b, #ffde59);
+    color: #333;
+    border: 2px solid #ff6b6b;
+}
+
+.dungeon-message.info {
+    background: linear-gradient(45deg, #4a4ae6, #7676ff);
+    color: white;
+    border: 2px solid #a0a0ff;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateX(-50%) translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(-50%) translateY(0);
+        opacity: 1;
+    }
+}
+
+/* 🔥 CORREÇÕES PARA A BARRA DE VIDA */
+
+.enemy-health-container {
+    width: 100%;
+    margin: 1rem 0;
+}
+
+.enemy-health-bar {
+    width: 100%;
+    height: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 2px solid #333;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.health-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #ff6b6b, #ff8e8e);
+    border-radius: 8px;
+    width: 100%;
+    transition: width 0.5s ease;
+}
+
+.health-text {
+    text-align: center;
+    color: #ffd700;
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+    font-weight: bold;
+}
+
+/* 🎯 GARANTIR QUE O INIMIGO ESTEJA VISÍVEL */
+.enemy-sprite {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    animation: float 3s ease-in-out infinite;
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.enemy-info {
+    min-height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* 🔍 ESTILOS DA ANÁLISE RÁPIDA */
+
+.quick-analysis {
+    background: rgba(20, 20, 50, 0.95);
+    border: 2px solid #4a4ae6;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    position: relative;
+    animation: slideIn 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.analysis-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #4a4ae6;
+    padding-bottom: 0.5rem;
+}
+
+.analysis-header h4 {
+    color: #ffd700;
+    margin: 0;
+    font-size: 1rem;
+}
+
+.analysis-close {
+    color: #a0a0ff;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 0 0.5rem;
+}
+
+.analysis-close:hover {
+    color: #ff6b6b;
+}
+
+.analysis-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.8rem;
+}
+
+.analysis-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.analysis-label {
+    color: #4a4ae6;
+    font-size: 0.7rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.analysis-value {
+    color: #e0e0ff;
+    font-size: 0.8rem;
+}
+
+.analysis-value.tech {
+    color: #ffd700;
+    font-weight: bold;
+}
+
+.analysis-value.complexity-high {
+    color: #ff6b6b;
+    font-weight: bold;
+}
+
+.analysis-value.complexity-medium {
+    color: #ffd43b;
+    font-weight: bold;
+}
+
+.analysis-value.complexity-low {
+    color: #51cf66;
+    font-weight: bold;
+}
+
+.analysis-value.status-active {
+    color: #51cf66;
+    font-weight: bold;
+}
+
+.analysis-value.status-recent {
+    color: #ffd43b;
+    font-weight: bold;
+}
+
+.analysis-value.status-completed {
+    color: #a0a0ff;
+    font-weight: bold;
+}
+
+.analysis-tags {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid #4a4ae6;
+}
+
+.analysis-tag {
+    background: rgba(74, 74, 230, 0.3);
+    color: #a0a0ff;
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    border: 1px solid #4a4ae6;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 📱 RESPONSIVIDADE */
+@media (max-width: 768px) {
+    .analysis-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .quick-analysis {
+        padding: 1rem;
+    }
+}

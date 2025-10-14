@@ -11,6 +11,240 @@
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
 </head>
+
+<!-- VILA DA EXPERIÊNCIA -->
+<section id="village" class="screen">
+    <div class="village-container">
+        <h2>🏠 Experience Village</h2>
+        <p class="subtitle">The chronicles of my professional journey</p>
+        
+        <!-- LINHA DO TEMPO DA EXPERIÊNCIA -->
+        <div class="timeline">
+            <!-- EXPERIÊNCIA 1: MOBILIZA -->
+            <div class="timeline-item">
+                <div class="timeline-marker">⚡</div>
+                <div class="timeline-content">
+                    <h3>Coordenador de Customer Experience</h3>
+                    <div class="timeline-meta">
+                        <span class="company">Mobiliza</span>
+                        <span class="period">2024 - Presente</span>
+                    </div>
+                    <p class="timeline-description">
+                        Liderança do time de suporte técnico em SaaS (LMS + Applique). 
+                        Automação de processos, gestão de KPIs/OKRs, e ponte entre 
+                        clientes e produto.
+                    </p>
+                    <div class="timeline-skills">
+                        <span class="skill-tag">Liderança</span>
+                        <span class="skill-tag">CX</span>
+                        <span class="skill-tag">SaaS</span>
+                        <span class="skill-tag">KPIs</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- EXPERIÊNCIA 2: MOBILIZA ANALISTA -->
+            <div class="timeline-item">
+                <div class="timeline-marker">🔧</div>
+                <div class="timeline-content">
+                    <h3>Analista de Customer Experience</h3>
+                    <div class="timeline-meta">
+                        <span class="company">Mobiliza</span>
+                        <span class="period">2021 - 2023</span>
+                    </div>
+                    <p class="timeline-description">
+                        Suporte técnico especializado, análise de dados de tickets, 
+                        report de bugs críticos e melhoria contínua de processos.
+                    </p>
+                    <div class="timeline-skills">
+                        <span class="skill-tag">Suporte Técnico</span>
+                        <span class="skill-tag">Análise de Dados</span>
+                        <span class="skill-tag">Debugging</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- EXPERIÊNCIA 3: DESENVOLVEDOR -->
+            <div class="timeline-item">
+                <div class="timeline-marker">💻</div>
+                <div class="timeline-content">
+                    <h3>Desenvolvedor Front-end</h3>
+                    <div class="timeline-meta">
+                        <span class="company">Startup X</span>
+                        <span class="period">2020 - 2021</span>
+                    </div>
+                    <p class="timeline-description">
+                        Desenvolvimento de interface para sistema de controle e 
+                        armazenamento de notas fiscais utilizando Node e Laravel.
+                    </p>
+                    <div class="timeline-skills">
+                        <span class="skill-tag">Front-end</span>
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">Laravel</span>
+                        <span class="skill-tag">UI/UX</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- EXPERIÊNCIA 4: APPLE -->
+            <div class="timeline-item">
+                <div class="timeline-marker">🍎</div>
+                <div class="timeline-content">
+                    <h3>Consultor de Vendas</h3>
+                    <div class="timeline-meta">
+                        <span class="company">Apple</span>
+                        <span class="period">2019 - 2020</span>
+                    </div>
+                    <p class="timeline-description">
+                        Consultoria especializada em produtos Apple, tradução de 
+                        necessidades técnicas em soluções práticas, e experiência 
+                        premium ao cliente.
+                    </p>
+                    <div class="timeline-skills">
+                        <span class="skill-tag">Vendas</span>
+                        <span class="skill-tag">Customer Success</span>
+                        <span class="skill-tag">Tecnologia</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ESTATÍSTICAS -->
+        <div class="experience-stats">
+            <div class="stat-card">
+                <div class="stat-number">4+</div>
+                <div class="stat-label">Anos de XP</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">3</div>
+                <div class="stat-label">Empresas</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">2</div>
+                <div class="stat-label">Promoções</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">12+</div>
+                <div class="stat-label">Projetos</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- BOTÕES DE NAVEGAÇÃO -->
+    <div class="navigation-buttons">
+        <button class="rpg-btn" onclick="backToMap()">← Back to Map</button>
+        <button class="rpg-btn secondary" onclick="backToMenu()">🏠 Main Menu</button>
+    </div>
+</section>
+
+<!-- PROJECTS DUNGEON -->
+<section id="dungeon" class="screen">
+    <div class="dungeon-container">
+        <!-- CABEÇALHO DA MASMORRA -->
+        <div class="dungeon-header">
+            <h2>⚔️ Projects Dungeon</h2>
+            <p class="subtitle">Defeat project monsters to reveal their secrets!</p>
+        </div>
+
+        <!-- ÁREA DE BATALHA -->
+        <div class="battle-area">
+            <!-- INIMIGO ATUAL -->
+            <div class="enemy-display">
+                <div class="enemy-sprite" id="current-enemy">❓</div>
+                <div class="enemy-health-container">
+                    <div class="enemy-health-bar">
+                        <div class="health-fill" id="enemy-health"></div>
+                    </div>
+                    <div class="health-text" id="health-text">100%</div>
+                </div>
+                <div class="enemy-info">
+                    <h3 id="enemy-name">Select a Project</h3>
+                    <p id="enemy-description">Choose a project monster to battle!</p>
+                </div>
+            </div>
+
+            <!-- LISTA DE PROJETOS/INIMIGOS -->
+            <div class="projects-list">
+                <div class="project-enemy" data-project="lms-mobiliza">
+                    <span class="enemy-icon">📚</span>
+                    <span class="enemy-title">LMS Platform</span>
+                    <span class="enemy-level">Lv. 85</span>
+                </div>
+                
+                <div class="project-enemy" data-project="applique">
+                    <span class="enemy-icon">🎨</span>
+                    <span class="enemy-title">Applique Tool</span>
+                    <span class="enemy-level">Lv. 80</span>
+                </div>
+                
+                <div class="project-enemy" data-project="portfolio">
+                    <span class="enemy-icon">🌐</span>
+                    <span class="enemy-title">JRPG Portfolio</span>
+                    <span class="enemy-level">Lv. 90</span>
+                </div>
+                
+                <div class="project-enemy" data-project="nfe-system">
+                    <span class="enemy-icon">🧾</span>
+                    <span class="enemy-title">NFE System</span>
+                    <span class="enemy-level">Lv. 70</span>
+                </div>
+                
+                <div class="project-enemy" data-project="automation">
+                    <span class="enemy-icon">⚡</span>
+                    <span class="enemy-title">CX Automation</span>
+                    <span class="enemy-level">Lv. 75</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- AÇÕES DE BATALHA -->
+        <div class="battle-actions">
+            <button class="battle-btn attack-btn" onclick="attackProject()">
+                ⚔️ Attack
+            </button>
+            <button class="battle-btn inspect-btn" onclick="inspectProject()">
+                🔍 Inspect
+            </button>
+            <button class="battle-btn next-btn" onclick="nextProject()">
+                ➡️ Next
+            </button>
+        </div>
+
+        <!-- DETALHES DO PROJETO -->
+        <div class="project-details" id="project-details" style="display: none;">
+            <div class="details-content">
+                <h3 id="detail-title">Project Details</h3>
+                <div class="detail-item">
+                    <span class="detail-label">Technologies:</span>
+                    <span class="detail-value" id="detail-tech"></span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Role:</span>
+                    <span class="detail-value" id="detail-role"></span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Duration:</span>
+                    <span class="detail-value" id="detail-duration"></span>
+                </div>
+                <div class="detail-item full-width">
+                    <span class="detail-label">Description:</span>
+                    <p class="detail-value" id="detail-description"></p>
+                </div>
+                <div class="detail-item full-width">
+                    <span class="detail-label">Achievements:</span>
+                    <p class="detail-value" id="detail-achievements"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- BOTÕES DE NAVEGAÇÃO -->
+    <div class="navigation-buttons">
+        <button class="rpg-btn" onclick="backToMap()">← Back to Map</button>
+        <button class="rpg-btn secondary" onclick="backToMenu()">🏠 Main Menu</button>
+    </div>
+</section>
+
 <body>
     <div id="game-container">
         
@@ -18,68 +252,122 @@
         <section id="title-screen" class="screen active">
             <div class="title-content">
                 <h1 class="pixel-text title-glitch">RAFA'S JOURNEY</h1>
-                <p class="subtitle">Portfolio Interativo</p>
+                <p class="subtitle">Interactive Portfolio</p>
                 <div class="menu-options">
-                    <button class="rpg-btn" onclick="startGame()">NOVA JORNADA</button>
-                    <button class="rpg-btn" onclick="loadGame()">CONTINUAR</button>
-                    <button class="rpg-btn" onclick="showConfig()">CONFIGURAÇÕES</button>
+                    <button class="rpg-btn" onclick="startGame()">New Game</button>
+                    <button class="rpg-btn continue-btn" onclick="continueGame()">Continue</button>
+                    <button class="rpg-btn" onclick="showConfig()">Settings</button>
                 </div>
             </div>
             <div class="title-footer">
-                <p>Pressione Z para confirmar • X para voltar</p>
+                <p>2025 - Rafael Real</p>
             </div>
         </section>
 
         <!-- MAPA MUNDIAL -->
         <section id="world-map" class="screen">
             <div class="map-container">
-                <h2>MAPA DA JORNADA</h2>
+                <h2 style="margin-bottom: 2rem;">WORLD MAP</h2>
+                
+                <!-- BOTÃO VOLTAR AO MENU (ADICIONE ESTE BOTÃO) -->
+                <div>
+                    <button class="rpg-btn" onclick="backToMenu()">← Back to Menu</button>
+                </div>
+                
                 <div class="pixel-map">
                     <div class="location" data-location="forest">
                         <span>🌲</span>
-                        <span>Floresta das Habilidades</span>
+                        <span>Skills Forest</span>
                     </div>
                     <div class="location" data-location="village">
                         <span>🏠</span>
-                        <span>Vila da Experiência</span>
+                        <span>Experience Village</span>
                     </div>
                     <div class="location" data-location="dungeon">
                         <span>⚔️</span>
-                        <span>Masmorra dos Projetos</span>
+                        <span>Projects Dungeon</span>
                     </div>
                     <div class="location" data-location="tower">
                         <span>🏰</span>
-                        <span>Torre do Contato</span>
+                        <span>Contact Tower</span>
                     </div>
                 </div>
             </div>
         </section>
-
-        <!-- FLORESTA DAS HABILIDADES -->
-        <section id="forest" class="subscreen">
-            <div class="rpg-dialog">
-                <h3>🌲 Floresta das Habilidades</h3>
-                <div class="skill-tree">
-                    <div class="skill" data-skill="frontend">
+        
+<!-- FLORESTA DAS HABILIDADES -->
+        <section id="forest" class="screen">
+            <div class="skills-container">
+                <!-- 🎯 COLUNA DA ESQUERDA - Lista de Habilidades -->
+                <div class="skills-list">
+                    <h3>🌲 Skills Tree</h3>
+                    <p class="subtitle">Choose a skill to inspect</p>
+                    
+                    <div class="skill-item" data-skill="frontend">
                         <span class="skill-icon">⚡</span>
                         <span class="skill-name">Frontend Mastery</span>
-                        <div class="skill-level">Nv. 85</div>
+                        <span class="skill-level">Lv. 85</span>
                     </div>
-                    <div class="skill" data-skill="backend">
+                    
+                    <div class="skill-item" data-skill="backend">
                         <span class="skill-icon">🔮</span>
                         <span class="skill-name">Backend Wizardry</span>
-                        <div class="skill-level">Nv. 70</div>
+                        <span class="skill-level">Lv. 70</span>
                     </div>
-                    <div class="skill" data-skill="ux">
+                    
+                    <div class="skill-item" data-skill="ux">
                         <span class="skill-icon">🎨</span>
                         <span class="skill-name">UX Alchemy</span>
-                        <div class="skill-level">Nv. 90</div>
+                        <span class="skill-level">Lv. 90</span>
+                    </div>
+
+                    <div class="skill-item" data-skill="leadership">
+                        <span class="skill-icon">👑</span>
+                        <span class="skill-name">Team Leadership</span>
+                        <span class="skill-level">Lv. 88</span>
+                    </div>
+
+                    <div class="skill-item" data-skill="devops">
+                        <span class="skill-icon">⚙️</span>
+                        <span class="skill-name">DevOps Engineering</span>
+                        <span class="skill-level">Lv. 65</span>
                     </div>
                 </div>
-                <button class="rpg-btn" onclick="backToMap()">← Voltar ao Mapa</button>
+
+                <!-- 🎯 COLUNA DA DIREITA - Detalhes da Habilidade -->
+                <div class="skill-details">
+                    <div class="details-placeholder">
+                        <p>🎯 Select a skill from the tree to view its details</p>
+                        <p class="hint">Each skill tells a story of your journey...</p>
+                    </div>
+                    
+                    <div class="skill-info" id="skill-info" style="display: none;">
+                        <h3 id="skill-title">⚡ Skill Title</h3>
+                        <div class="skill-meta">
+                            <span class="skill-type" id="skill-type">Active Skill</span>
+                            <span class="skill-mp" id="skill-mp">MP: 15</span>
+                        </div>
+                        <p id="skill-description">Lorem ipsum dolor sit amet...</p>
+                        <div class="skill-stats">
+                            <div class="stat">
+                                <span class="stat-label">Level:</span>
+                                <span class="stat-value" id="skill-level">Lv. 0</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-label">Experience:</span>
+                                <span class="stat-value" id="skill-exp">0/100</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 🎮 BOTÕES DE NAVEGAÇÃO -->
+            <div class="navigation-buttons">
+                <button class="rpg-btn" onclick="backToMap()">← Back to Map</button>
+                <button class="rpg-btn secondary" onclick="backToMenu()">🏠 Main Menu</button>
             </div>
         </section>
-
     </div>
 
     <!-- Canvas para efeitos especiais -->
@@ -90,6 +378,8 @@
     <script src="js/audio.js"></script>
     <script src="js/navigation.js"></script>
     <script src="js/canvas-effects.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/skills.js"></script>
+    <script src="js/progress-system.js"></script>
+    <script src="js/dungeon.js"></script>
 </body>
 </html>
