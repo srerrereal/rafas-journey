@@ -21,3 +21,13 @@ npm-debug.log*
 
 # Audio 
 /assets/audio/
+
+# Netlify
+.netlify/
+
+# Vercel
+.vercel/
+
+# Firebase
+.firebase/
+*-debug.log
