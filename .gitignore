@@ -1,0 +1,23 @@
+node_modules/
+
+# Env
+dist/
+build/
+
+# Env variables
+.env
+
+# IDE
+.vscode/
+.idea/
+
+# System
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Audio 
+/assets/audio/

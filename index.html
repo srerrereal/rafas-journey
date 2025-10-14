@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rafa's Journey - Portfolio JRPG</title>
+    
+    <!-- Fontes -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="game-container">
+        
+        <!-- TELA INICIAL -->
+        <section id="title-screen" class="screen active">
+            <div class="title-content">
+                <h1 class="pixel-text title-glitch">RAFA'S JOURNEY</h1>
+                <p class="subtitle">Portfolio Interativo</p>
+                <div class="menu-options">
+                    <button class="rpg-btn" onclick="startGame()">NOVA JORNADA</button>
+                    <button class="rpg-btn" onclick="loadGame()">CONTINUAR</button>
+                    <button class="rpg-btn" onclick="showConfig()">CONFIGURAÇÕES</button>
+                </div>
+            </div>
+            <div class="title-footer">
+                <p>Pressione Z para confirmar • X para voltar</p>
+            </div>
+        </section>
+
+        <!-- MAPA MUNDIAL -->
+        <section id="world-map" class="screen">
+            <div class="map-container">
+                <h2>MAPA DA JORNADA</h2>
+                <div class="pixel-map">
+                    <div class="location" data-location="forest">
+                        <span>🌲</span>
+                        <span>Floresta das Habilidades</span>
+                    </div>
+                    <div class="location" data-location="village">
+                        <span>🏠</span>
+                        <span>Vila da Experiência</span>
+                    </div>
+                    <div class="location" data-location="dungeon">
+                        <span>⚔️</span>
+                        <span>Masmorra dos Projetos</span>
+                    </div>
+                    <div class="location" data-location="tower">
+                        <span>🏰</span>
+                        <span>Torre do Contato</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FLORESTA DAS HABILIDADES -->
+        <section id="forest" class="subscreen">
+            <div class="rpg-dialog">
+                <h3>🌲 Floresta das Habilidades</h3>
+                <div class="skill-tree">
+                    <div class="skill" data-skill="frontend">
+                        <span class="skill-icon">⚡</span>
+                        <span class="skill-name">Frontend Mastery</span>
+                        <div class="skill-level">Nv. 85</div>
+                    </div>
+                    <div class="skill" data-skill="backend">
+                        <span class="skill-icon">🔮</span>
+                        <span class="skill-name">Backend Wizardry</span>
+                        <div class="skill-level">Nv. 70</div>
+                    </div>
+                    <div class="skill" data-skill="ux">
+                        <span class="skill-icon">🎨</span>
+                        <span class="skill-name">UX Alchemy</span>
+                        <div class="skill-level">Nv. 90</div>
+                    </div>
+                </div>
+                <button class="rpg-btn" onclick="backToMap()">← Voltar ao Mapa</button>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Canvas para efeitos especiais -->
+    <canvas id="game-canvas"></canvas>
+
+    <!-- JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
+    <script src="js/audio.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/canvas-effects.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
