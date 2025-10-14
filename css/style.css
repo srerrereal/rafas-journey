@@ -482,13 +482,10 @@ body {
     padding: 2rem;
     flex: 1;
     overflow-y: auto;
-    
-    /* 🔥 ESCONDE A SCROLLBAR EM TODOS OS NAVEGADORES */
     scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none; /* IE and Edge */
 }
 
-/* 🔥 ESCONDE A SCROLLBAR NO CHROME, SAFARI E EDGE */
 .village-container::-webkit-scrollbar {
     display: none;
 }
@@ -1193,4 +1190,126 @@ body {
     .quick-analysis {
         padding: 1rem;
     }
+}
+
+/* 🏆 ESTILOS PARA PROJETOS DERROTADOS */
+
+/* Projeto na lista - estilo derrotado */
+.project-enemy.defeated {
+    background: rgba(81, 207, 102, 0.2) !important;
+    border: 2px solid #51cf66 !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.project-enemy.defeated::after {
+    content: '🏆';
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 0.8rem;
+    animation: bounce 1s ease infinite;
+}
+
+.project-enemy.defeated .enemy-title {
+    color: #51cf66 !important;
+    text-decoration: line-through;
+    text-decoration-color: #ffd700;
+    text-decoration-thickness: 2px;
+}
+
+.project-enemy.defeated .enemy-level {
+    background: rgba(81, 207, 102, 0.3) !important;
+    color: #d8f5de !important;
+}
+
+/* Barra de vida verde para projetos derrotados */
+.health-victory {
+    background: linear-gradient(90deg, #51cf66, #69db7c) !important;
+    animation: pulse-green 2s ease-in-out infinite;
+}
+
+.health-text-victory {
+    color: #51cf66 !important;
+    font-weight: bold;
+    animation: glow-green 1.5s ease-in-out infinite alternate;
+}
+
+/* Detalhes do projeto - estilo desbloqueado */
+.project-details.unlocked {
+    border: 3px solid #51cf66;
+    background: rgba(81, 207, 102, 0.05);
+    position: relative;
+}
+
+.project-details.unlocked::before {
+    content: '🏆 UNLOCKED';
+    position: absolute;
+    top: -15px;
+    right: 20px;
+    background: #51cf66;
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 5px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+/* 🎭 ANIMAÇÕES PARA VITÓRIA */
+@keyframes pulse-green {
+    0%, 100% { 
+        opacity: 1;
+        box-shadow: 0 0 10px rgba(81, 207, 102, 0.5);
+    }
+    50% { 
+        opacity: 0.8;
+        box-shadow: 0 0 20px rgba(81, 207, 102, 0.8);
+    }
+}
+
+@keyframes glow-green {
+    from { 
+        text-shadow: 0 0 5px rgba(81, 207, 102, 0.5);
+    }
+    to { 
+        text-shadow: 0 0 15px rgba(81, 207, 102, 0.8), 0 0 20px rgba(81, 207, 102, 0.6);
+    }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-3px) scale(1.1); }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+
+/* 🚨 PATCH CSS - Garante que telas inativas ficam escondidas */
+.screen {
+    display: none !important;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.screen.active {
+    display: flex !important;
+    flex-direction: column;
+    z-index: 1000;
+}
+
+/* 🎯 Força a Dungeon a respeitar o sistema de active */
+#dungeon:not(.active) {
+    display: none !important;
+}
+
+#dungeon.active {
+    display: flex !important;
 }

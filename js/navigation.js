@@ -81,20 +81,56 @@ class RPGNavigation {
     }
 
     // 🏞️ MÉTODO: Entrar em uma Localização
-    enterLocation(locationName) {
-        console.log(`🚪 Entrando em: ${locationName}`);
+        enterLocation(locationId) {
+        console.log(`🚪 Entering location: ${locationId}`);
         
-        // Mapeia nomes das localizações para IDs de tela
-        const locationMap = {
-            'forest': 'forest',
-            'village': 'village', 
-            'dungeon': 'dungeon',
-            'tower': 'tower'
+        // 🔥 MAPA de localizações válidas
+        const validLocations = {
+            'forest': 'Skills Forest',
+            'village': 'Experience Village', 
+            'dungeon': 'Projects Dungeon',
+            'tower': 'Contact Tower'
         };
         
-        const screenId = locationMap[locationName];
-        if (screenId) {
-            this.showScreen(screenId);
+        // Verifica se a localização é válida
+        if (!validLocations[locationId]) {
+            console.error(`❌ Invalid location: ${locationId}`);
+            return;
+        }
+        
+        console.log(`🎯 Going to: ${validLocations[locationId]}`);
+        
+        // Música específica para cada localização
+        if (window.rpgAudio) {
+            const locationMusic = {
+                'forest': 'forest',
+                'village': 'worldMap',
+                'dungeon': 'mainTheme', 
+                'tower': 'worldMap'
+            };
+            window.rpgAudio.playMusic(locationMusic[locationId] || 'worldMap');
+            window.rpgAudio.playSound('select');
+        }
+        
+        // Esconde todas as telas
+        document.querySelectorAll('.screen').forEach(screen => {
+            screen.classList.remove('active');
+        });
+        
+        // Mostra a locação específica
+        const locationScreen = document.getElementById(locationId);
+        if (locationScreen) {
+            locationScreen.classList.add('active');
+            console.log(`✅ Successfully entered: ${validLocations[locationId]}`);
+            
+            // 🔥 SALVA o progresso
+            if (window.progressSystem) {
+                window.progressSystem.saveProgress(locationId);
+            }
+        } else {
+            console.error(`❌ Location screen not found: ${locationId}`);
+            // Fallback: volta para o mapa
+            backToMap();
         }
     }
 }
