@@ -7,6 +7,7 @@
     
     <!-- Fontes -->
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
@@ -247,6 +248,178 @@
     </div>
 </section>
 
+<!-- TORRE DE CONTATO -->
+<section id="tower" class="screen">
+    <div class="tower-container">
+        <h2>🏰 Contact Tower</h2>
+        <p class="subtitle">Reach the summit to connect with me!</p>
+        
+        <!-- ANDARES DA TORRE -->
+        <div class="tower-floors">
+                    
+            <!-- ESTATÍSTICAS DE CONTATO -->
+            <div class="contact-stats">
+                <div class="contact-stat">
+                    <div class="stat-number" id="response-time">24h</div>
+                    <div class="stat-label">Avg. Response</div>
+                </div>
+                <div class="contact-stat">
+                    <div class="stat-number" id="connection-rate">99%</div>
+                    <div class="stat-label">Coffee addicted</div>
+                </div>
+                <div class="contact-stat">
+                    <div class="stat-number" id="projects-completed">12+</div>
+                    <div class="stat-label">Projects Done</div>
+                </div>
+                <div class="contact-stat">
+                    <div class="stat-number" id="happy-clients">100%</div>
+                    <div class="stat-label">Happy Clients</div>
+                </div>
+            </div>
+        </div>
+
+
+            <!-- ANDAR 1: REDES SOCIAIS -->
+            <div class="tower-floor" data-floor="social">
+                <div class="floor-header">
+                    <span class="floor-number">1F</span>
+                    <h3>🌐 Social Bridges</h3>
+                </div>
+                <div class="floor-content">
+                    <div class="contact-card" data-contact="linkedin">
+                        <div class="contact-icon"><i class="fa-brands fa-linkedin"></i></div>
+                        <div class="contact-info">
+                            <h4>LinkedIn</h4>
+                            <p>Professional network & career</p>
+                        </div>
+                        <button class="contact-btn" onclick="openLink('https://br.linkedin.com/in/rafael-r-real')">
+                            Connect →
+                        </button>
+                    </div>
+                    
+                    <div class="contact-card" data-contact="github">
+                        <div class="contact-icon"><i class="fa-brands fa-github"></i></div>
+                        <div class="contact-info">
+                            <h4>GitHub</h4>
+                            <p>Code repositories & projects</p>
+                        </div>
+                        <button class="contact-btn" onclick="openLink('https://github.com/srerrereal')">
+                            Follow →
+                        </button>
+                    </div>
+                    
+                    <div class="contact-card" data-contact="instagram">
+                        <div class="contact-icon"><i class="fa-brands fa-instagram"></i></div>
+                        <div class="contact-info">
+                            <h4>Instagram</h4>
+                            <p>Daily life & behind the scenes</p>
+                        </div>
+                        <button class="contact-btn" onclick="openLink('https://www.instagram.com/r3alrafa/')">
+                            Follow →
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            
+            <!-- ANDAR 2: CONTATO PROFISSIONAL -->
+            <div class="tower-floor" data-floor="professional">
+                <div class="floor-header">
+                    <span class="floor-number">2F</span>
+                    <h3>📧 Message Scrolls</h3>
+                </div>
+                <div class="floor-content">
+                    <div class="contact-card" data-contact="email">
+                        <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+                        <div class="contact-info">
+                            <h4>Email Direct</h4>
+                            <p>For formal inquiries and opportunities</p>
+                            <span class="contact-address">rafael.real94@gmail.com</span>
+                        </div>
+                        <button class="contact-btn" onclick="copyToClipboard('rafael.real94@gmail.com')">
+                            Copy 📋
+                        </button>
+                    </div>
+                    
+                    <div class="contact-card" data-contact="whatsapp">
+                        <div class="contact-icon"><i class="fa-brands fa-whatsapp"></i></div>
+                        <div class="contact-info">
+                            <h4>Quick Chat</h4>
+                            <p>Fast responses and casual talks</p>
+                            <span class="contact-address">+55 (53) 98119-9764</span>
+                        </div>
+                        <button class="contact-btn" onclick="openWhatsApp()">
+                            Message 💬
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- ANDAR 3: PORTFÓLIO & LINKS -->
+            <div class="tower-floor" data-floor="portfolio">
+                <div class="floor-header">
+                    <span class="floor-number">3F</span>
+                    <h3>🎨 Gallery of Works</h3>
+                </div>
+                <div class="floor-content">
+                    <div class="contact-card" data-contact="portfolio">
+                        <div class="contact-icon">🌐</div>
+                        <div class="contact-info">
+                            <h4>Online Portfolio</h4>
+                            <p>Complete collection of my projects</p>
+                        </div>
+                        <button class="contact-btn" onclick="openLink('https://seu-portfolio.com')">
+                            Visit 🚀
+                        </button>
+                    </div>
+                    
+                    <div class="contact-card" data-contact="resume">
+                        <div class="contact-icon">📄</div>
+                        <div class="contact-info">
+                            <h4>Digital Resume</h4>
+                            <p>Download my complete CV</p>
+                        </div>
+                        <button class="contact-btn" onclick="downloadResume()">
+                            Download ⬇️
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- ANDAR 4: TOPO DA TORRE - CALENDLY -->
+            <div class="tower-floor summit" data-floor="summit">
+                <div class="floor-header">
+                    <span class="floor-number">🎯</span>
+                    <h3>Summit Meeting Room</h3>
+                </div>
+                <div class="floor-content">
+                    <div class="summit-card">
+                        <div class="summit-icon">⏰</div>
+                        <div class="summit-info">
+                            <h4>Schedule a Meeting</h4>
+                            <p>Let's have a proper conversation! Book a time that works for both of us.</p>
+                            <div class="meeting-features">
+                                <span class="feature">✅ 30min video call</span>
+                                <span class="feature">✅ Technical discussion</span>
+                                <span class="feature">✅ Career opportunities</span>
+                            </div>
+                        </div>
+                        <button class="summit-btn" onclick="scheduleMeeting()">
+                            Book Meeting 🗓️
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+ 
+
+    <!-- BOTÕES DE NAVEGAÇÃO -->
+    <div class="navigation-buttons">
+        <button class="rpg-btn" onclick="backToMap()">← Back to Map</button>
+        <button class="rpg-btn secondary" onclick="backToMenu()">🏠 Main Menu</button>
+    </div>
+</section>
+
     <div id="game-container">
         
         <!-- TELA INICIAL -->
@@ -376,11 +549,14 @@
 
     <!-- JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/js/v4-shims.min.js" integrity="sha512-ADYQColMa2x3iTFA+Lscel6CH9IWwIQW9B/8um6FJvHZ8IFgSHCRhg8wXTXfH4psA0h6yvchGf8sjZwV07Je0Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="js/audio.js"></script>
     <script src="js/navigation.js"></script>
     <script src="js/canvas-effects.js"></script>
     <script src="js/skills.js"></script>
     <script src="js/progress-system.js"></script>
     <script src="js/dungeon.js"></script>
+    <script src="js/tower.js"></script>
+    
 </body>
 </html>

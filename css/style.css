@@ -68,7 +68,8 @@ body {
 
 .subtitle {
     color: #a0a0ff;
-    margin-bottom: 3rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
     font-size: 1rem;
 }
 
@@ -1312,4 +1313,222 @@ body {
 
 #dungeon.active {
     display: flex !important;
+}
+
+/* 🏰 CONTACT TOWER STYLES */
+
+#tower {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.tower-container {
+  max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+    flex: 1;
+    overflow-y: auto;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+}
+
+.tower-floors {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.tower-floor {
+    background: rgba(30, 30, 60, 0.8);
+    border: 2px solid #4a4ae6;
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.tower-floor::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(45deg, #4a4ae6, #8a2be2);
+}
+
+.tower-floor.summit {
+    background: linear-gradient(135deg, rgba(74, 74, 230, 0.2), rgba(138, 43, 226, 0.2));
+    border-color: #ffd700;
+}
+
+.tower-floor.summit::before {
+    background: linear-gradient(45deg, #ffd700, #ff6b6b);
+}
+
+.floor-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+}
+
+.floor-number {
+    background: #4a4ae6;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.8rem;
+}
+
+.floor-content {
+    display: grid;
+    gap: 1rem;
+}
+
+.contact-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.contact-card:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+    border-color: #4a4ae6;
+}
+
+.contact-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+}
+
+.contact-info {
+    flex: 1;
+}
+
+.contact-info h4 {
+    margin: 0 0 0.5rem 0;
+    color: #fff;
+}
+
+.contact-info p {
+    margin: 0;
+    color: #ccc;
+    font-size: 0.9rem;
+}
+
+.contact-address {
+    display: block;
+    margin-top: 0.5rem;
+    color: #ffd700;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.7rem;
+}
+
+.contact-btn, .summit-btn {
+    background: linear-gradient(45deg, #4a4ae6, #8a2be2);
+    border: none;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.7rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.contact-btn:hover, .summit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(74, 74, 230, 0.4);
+}
+
+.summit-card {
+    text-align: center;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    border: 2px solid #ffd700;
+}
+
+.summit-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.summit-info h4 {
+    color: #ffd700;
+    margin-bottom: 1rem;
+}
+
+.meeting-features {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1rem 0;
+    flex-wrap: wrap;
+}
+
+.feature {
+    background: rgba(255, 215, 0, 0.2);
+    color: #ffd700;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+}
+
+.contact-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.contact-stat {
+    text-align: center;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.stat-number {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #4a4ae6;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    color: #ccc;
+    font-size: 0.8rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .contact-card {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .meeting-features {
+        flex-direction: column;
+    }
+    
+    .contact-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
