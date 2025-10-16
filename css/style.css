@@ -1532,3 +1532,301 @@ body {
         grid-template-columns: repeat(2, 1fr);
     }
 }
+
+/* === EFEITOS VISUAIS EXTRAS === */
+
+/* Animação de flutuação para texto */
+@keyframes floatUp {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+}
+
+/* Efeito de brilho pulsante */
+@keyframes glow-pulse {
+    0%, 100% {
+        box-shadow: 0 0 5px currentColor;
+    }
+    50% {
+        box-shadow: 0 0 20px currentColor, 0 0 30px currentColor;
+    }
+}
+
+/* Efeito de digitação */
+.typing-effect {
+    overflow: hidden;
+    border-right: 2px solid #4a4ae6;
+    white-space: nowrap;
+    animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: #4a4ae6 }
+}
+
+/* Efeito de neon para títulos */
+.neon-text {
+    color: #fff;
+    text-shadow: 
+        0 0 5px #fff,
+        0 0 10px #fff,
+        0 0 20px #4a4ae6,
+        0 0 30px #4a4ae6,
+        0 0 40px #4a4ae6;
+    animation: neon-flicker 2s infinite alternate;
+}
+
+@keyframes neon-flicker {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+        text-shadow: 
+            0 0 5px #fff,
+            0 0 10px #fff,
+            0 0 20px #4a4ae6,
+            0 0 30px #4a4ae6,
+            0 0 40px #4a4ae6;
+    }
+    20%, 24%, 55% {
+        text-shadow: none;
+    }
+}
+
+/* Efeito de partícula flutuante */
+.floating {
+    animation: floating 3s ease-in-out infinite;
+}
+
+@keyframes floating {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Efeito de entrada espetacular */
+.spectacular-entrance {
+    animation: spectacularEntrance 1s ease-out;
+}
+
+@keyframes spectacularEntrance {
+    0% {
+        opacity: 0;
+        transform: scale(0.1) rotate(360deg);
+    }
+    70% {
+        opacity: 0.7;
+        transform: scale(1.2) rotate(-10deg);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(0);
+    }
+}
+
+/* Adicione estas classes aos elementos no HTML */
+.enhanced-btn {
+    background: linear-gradient(45deg, #4a4ae6, #8a2be2);
+    border: none;
+    border-radius: 8px;
+    padding: 12px 24px;
+    color: white;
+    font-family: 'Press Start 2P', cursive;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.enhanced-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(74, 74, 230, 0.4);
+    animation: glow-pulse 1s infinite;
+}
+
+/* Efeito de scanline (CRT) */
+.crt-effect::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to bottom,
+        transparent 50%,
+        rgba(0, 0, 0, 0.03) 50%
+    );
+    background-size: 100% 4px;
+    pointer-events: none;
+    z-index: 9998;
+    animation: scanline 8s linear infinite;
+}
+
+/* ⚙️ SETTINGS SCREEN STYLES */
+.settings-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.settings-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.settings-section {
+    background: rgba(30, 30, 60, 0.8);
+    border: 2px solid #4a4ae6;
+    border-radius: 12px;
+    padding: 1.5rem;
+}
+
+.settings-section h3 {
+    color: #4a4ae6;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(74, 74, 230, 0.3);
+    padding-bottom: 0.5rem;
+}
+
+.audio-control-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.control-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.control-item label {
+    color: #ccc;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.slider-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.volume-slider {
+    flex: 1;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    outline: none;
+}
+
+.volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #4a4ae6;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.volume-slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: #4a4ae6;
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+}
+
+.volume-value {
+    color: #4a4ae6;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.8rem;
+    min-width: 50px;
+}
+
+.mute-toggle-btn {
+    background: linear-gradient(45deg, #4a4ae6, #8a2be2);
+    border: 2px solid #4a4ae6;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.7rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.mute-toggle-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(74, 74, 230, 0.4);
+}
+
+.mute-toggle-btn.muted {
+    background: linear-gradient(45deg, #6c757d, #495057);
+    border-color: #6c757d;
+}
+
+.settings-select {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.7rem;
+    cursor: pointer;
+}
+
+.settings-select:focus {
+    border-color: #4a4ae6;
+    outline: none;
+}
+
+.system-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.info-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.info-label {
+    color: #ccc;
+    font-size: 0.8rem;
+}
+
+.info-value {
+    color: #4a4ae6;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.7rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .slider-container {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.5rem;
+    }
+    
+    .volume-value {
+        text-align: center;
+    }
+}

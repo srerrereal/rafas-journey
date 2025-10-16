@@ -6,41 +6,41 @@ class SkillsSystem {
             frontend: {
                 title: "⚡ Frontend Mastery",
                 type: "Combat Skill",
-                mp: 12,
+                grade: "Master",
                 description: "Master of the visible realm. Crafts immersive user interfaces with HTML5, CSS3, and JavaScript. Specializes in React ecosystem and responsive design. Can debug CSS faster than you can say 'cascading style sheets'.",
-                level: "Lv. 85",
+                level: "75",
                 exp: "4250/5000"
             },
             backend: {
                 title: "🔮 Backend Wizardry", 
                 type: "Magic Skill",
-                mp: 20,
+                grade: "Adept",
                 description: "Commands the server-side forces with Node.js and Express. Creates RESTful APIs that would make a dragon jealous. Database sorcery with MongoDB and PostgreSQL. Security incantations included.",
-                level: "Lv. 70",
+                level: "60",
                 exp: "2800/4000"
             },
             ux: {
                 title: "🎨 UX Alchemy",
                 type: "Support Skill",
-                mp: 8,
-                description: "Transforms user frustration into delightful experiences. Conducts usability rituals and creates wireframe prophecies. Turns complex workflows into intuitive journeys. The philosopher's stone of design thinking.",
-                level: "Lv. 90", 
+                grade: "Master",
+                description: "Transforms user frustration into delightful experiences. Conducts usability rituals and creates wireframe prophecies. Turns cogradelex workflows into intuitive journeys. The philosopher's stone of design thinking.",
+                level: "80", 
                 exp: "5400/6000"
             },
             leadership: {
-                title: "👑 Team Leadership",
-                type: "Leadership Skill",
-                mp: 25,
+                title: "👑 Team Leader",
+                type: "Leader Skill",
+                grade: "Expert",
                 description: "Inspires parties to achieve legendary quests. Masters the art of agile ceremonies and sprint planning. Wields the +3 Sword of Constructive Feedback. Buffs team morale and productivity stats.",
-                level: "Lv. 88",
-                exp: "5280/5500"
+                level: "90",
+                exp: "5280/6500"
             },
             devops: {
                 title: "⚙️ DevOps Engineering",
                 type: "Technical Skill", 
-                mp: 15,
+                grade: "Adept",
                 description: "Bridges the realms of development and operations. Automates deployment rituals with CI/CD scrolls. Containerizes applications with Docker magic. Cloud architecture with AWS and Azure.",
-                level: "Lv. 65",
+                level: "65",
                 exp: "2600/4000"
             }
         };
@@ -241,7 +241,7 @@ class SkillsSystem {
         // Atualiza os detalhes
         document.getElementById('skill-title').textContent = skill.title;
         document.getElementById('skill-type').textContent = skill.type;
-        document.getElementById('skill-mp').textContent = `MP: ${skill.mp}`;
+        document.getElementById('skill-mp').textContent = `Grade: ${skill.grade}`;
         document.getElementById('skill-description').textContent = skill.description;
         document.getElementById('skill-level').textContent = skill.level;
         document.getElementById('skill-exp').textContent = skill.exp;

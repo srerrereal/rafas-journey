@@ -4,25 +4,25 @@ class DungeonSystem {
     constructor() {
         this.projectsData = {
             'lms-mobiliza': {
-                name: '📚 LMS Platform',
+                name: '📚 Mobiliza',
                 description: 'A powerful Learning Management System used by thousands of students.',
                 health: 100,
                 technologies: 'React, Node.js, MongoDB, AWS',
-                role: 'CX Coordinator & Technical Support',
-                duration: '2021 - Present',
+                role: 'CX Coordinator',
+                duration: '2024 - Present',
                 fullDescription: 'Complete learning platform with course management, progress tracking, and certification systems. Integrated with multiple payment gateways and analytics.',
-                achievements: 'Reduced support tickets by 40% through automation and improved UX',
+                achievements: 'Reduced support tickets by 40% through automation and mapping recurrency problems',
                 sprite: '📚'
             },
             'applique': {
-                name: '🎨 Applique Tool',
-                description: 'E-learning content creation tool with drag-and-drop interface.',
+                name: '🎨 Graphic Designer (freelancer)',
+                description: 'Focused on creating social media posts, web landing page elements, and video editing.',
                 health: 100,
-                technologies: 'Vue.js, Laravel, MySQL, Docker',
-                role: 'Technical Support Specialist',
-                duration: '2022 - Present',
-                fullDescription: 'Intuitive content creation platform that allows educators to build interactive courses without coding knowledge.',
-                achievements: 'Implemented user feedback system that improved satisfaction by 35%',
+                technologies: 'Adobe tools, Final Cut Pro',
+                role: 'Graphic Designer',
+                duration: '2015 - 2018',
+                fullDescription: 'Freelance part-time job, first time working with tech.',
+                achievements: '+10 projects done with 5 companies',
                 sprite: '🎨'
             },
             'portfolio': {
@@ -31,7 +31,7 @@ class DungeonSystem {
                 health: 100,
                 technologies: 'HTML5, CSS3, JavaScript, Canvas API',
                 role: 'Full-stack Developer & Designer',
-                duration: '2024 - Present',
+                duration: '2025',
                 fullDescription: 'Fully responsive portfolio website with game mechanics, achievements, and immersive storytelling.',
                 achievements: 'Unique approach to portfolio presentation that stands out from traditional formats',
                 sprite: '🌐'
@@ -44,16 +44,16 @@ class DungeonSystem {
                 role: 'Front-end Developer',
                 duration: '2020 - 2021',
                 fullDescription: 'Complete invoice management system with automated reporting and compliance features.',
-                achievements: 'Delivered ahead of schedule with 99.9% uptime in production',
+                achievements: 'Created a whole responsive template system, with callbacks from the backend. ',
                 sprite: '🧾'
             },
             'automation': {
                 name: '⚡ CX Automation',
                 description: 'Customer experience automation suite for support teams.',
                 health: 100,
-                technologies: 'Python, Zendesk API, AWS Lambda',
+                technologies: 'Python, Hubspot Breeze AI, Gemini',
                 role: 'Process Automation Specialist',
-                duration: '2023 - Present',
+                duration: '2025',
                 fullDescription: 'Suite of automation tools that handle repetitive support tasks and provide data insights.',
                 achievements: 'Reduced manual work by 60% and improved response times by 45%',
                 sprite: '⚡'

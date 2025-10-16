@@ -1,0 +1,115 @@
+/* css/animations.css */
+/* Fade animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; transform: scale(1); }
+    to { opacity: 0; transform: scale(1.05); }
+}
+
+/* Slide animations */
+@keyframes slideLeftIn {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideLeftOut {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(-100%); opacity: 0; }
+}
+
+@keyframes slideRightIn {
+    from { transform: translateX(-100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideRightOut {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(100%); opacity: 0; }
+}
+
+/* Magic transitions */
+@keyframes magicIn {
+    0% { 
+        opacity: 0; 
+        transform: scale(0.8) rotateY(90deg);
+        filter: blur(20px);
+    }
+    50% { 
+        opacity: 0.5; 
+        transform: scale(1.1) rotateY(45deg);
+        filter: blur(10px);
+    }
+    100% { 
+        opacity: 1; 
+        transform: scale(1) rotateY(0);
+        filter: blur(0);
+    }
+}
+
+@keyframes magicOut {
+    0% { 
+        opacity: 1; 
+        transform: scale(1) rotateY(0);
+        filter: blur(0);
+    }
+    50% { 
+        opacity: 0.5; 
+        transform: scale(1.1) rotateY(-45deg);
+        filter: blur(10px);
+    }
+    100% { 
+        opacity: 0; 
+        transform: scale(0.8) rotateY(-90deg);
+        filter: blur(20px);
+    }
+}
+
+/* Hover effects para cards */
+.project-enemy:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 
+        0 10px 25px rgba(74, 74, 230, 0.3),
+        0 0 0 2px rgba(74, 74, 230, 0.5);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.skill-item:hover {
+    transform: translateX(10px);
+    background: linear-gradient(90deg, 
+        rgba(74, 74, 230, 0.2), 
+        transparent);
+    border-left: 3px solid #4a4ae6;
+    transition: all 0.3s ease;
+}
+
+/* Pulsating effects */
+.pulse-glow {
+    animation: pulse-glow 2s infinite;
+}
+
+@keyframes pulse-glow {
+    0%, 100% { 
+        box-shadow: 0 0 5px rgba(74, 74, 230, 0.5); 
+    }
+    50% { 
+        box-shadow: 0 0 20px rgba(74, 74, 230, 0.8), 
+                   0 0 30px rgba(74, 74, 230, 0.6); 
+    }
+}
+
+@keyframes ripple {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
