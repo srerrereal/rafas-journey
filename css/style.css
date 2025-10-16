@@ -1830,3 +1830,47 @@ body {
         text-align: center;
     }
 }
+
+/* 🔊 AUDIO HELP STYLES */
+.audio-help-container h4 {
+    color: #4a4ae6;
+    margin-bottom: 1rem;
+}
+
+.audio-help-container p {
+    margin-bottom: 1.5rem;
+    font-size: 0.8rem;
+    line-height: 1.4;
+}
+
+.audio-help-container button {
+    background: linear-gradient(45deg, #4a4ae6, #8a2be2);
+    border: 2px solid #4a4ae6;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.6rem;
+    cursor: pointer;
+}
+
+.audio-help-container button:hover {
+    transform: translateY(-1px);
+}
+
+.test-audio-btn {
+    background: linear-gradient(45deg, #28a745, #20c997);
+    border: 2px solid #28a745;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.6rem;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.test-audio-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(40, 167, 69, 0.4);
+}

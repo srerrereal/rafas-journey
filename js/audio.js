@@ -1,4 +1,4 @@
-// js/audio.js - ATUALIZADO SEM CONTROLES FLUTUANTES
+// js/audio.js - VERSÃO COMPLETA E CORRIGIDA
 class RPGAudio {
     constructor() {
         this.audioContext = null;
@@ -6,6 +6,8 @@ class RPGAudio {
         this.musicVolume = 0.6;
         this.sfxVolume = 0.8;
         this.isMuted = false;
+        this.isUserInteracted = false;
+        this.pendingMusic = null;
         this.musicTracks = new Map();
         this.soundEffects = new Map();
         
@@ -15,14 +17,10 @@ class RPGAudio {
     init() {
         console.log('🎵 RPG Audio System Initializing...');
         
-        // Inicializar AudioContext
         this.setupAudioContext();
-        
-        // Carregar trilhas sonoras
         this.loadMusicTracks();
-        
-        // Carregar efeitos sonoros
         this.loadSoundEffects();
+        this.setupUserInteraction();
         
         console.log('✅ RPG Audio System Ready!');
     }
@@ -36,8 +34,41 @@ class RPGAudio {
         }
     }
 
+    setupUserInteraction() {
+        const enableAudio = () => {
+            if (!this.isUserInteracted) {
+                console.log('👆 User interaction detected - audio enabled');
+                this.isUserInteracted = true;
+                
+                if (this.audioContext && this.audioContext.state === 'suspended') {
+                    this.audioContext.resume();
+                }
+                
+                // TOCAR MÚSICA PENDENTE SE HOUVER
+                if (this.pendingMusic) {
+                    console.log(`🎵 Playing pending music: ${this.pendingMusic}`);
+                    this.playMusic(this.pendingMusic);
+                    this.pendingMusic = null;
+                }
+                
+                document.removeEventListener('click', enableAudio);
+                document.removeEventListener('keydown', enableAudio);
+                document.removeEventListener('touchstart', enableAudio);
+            }
+        };
+
+        document.addEventListener('click', enableAudio);
+        document.addEventListener('keydown', enableAudio);
+        document.addEventListener('touchstart', enableAudio);
+        
+        const mainButtons = document.querySelectorAll('.rpg-btn, .location, .skill-item, .project-enemy');
+        mainButtons.forEach(btn => {
+            btn.addEventListener('click', enableAudio);
+        });
+    }
+
     loadMusicTracks() {
-        // Trilhas principais - URLs podem ser ajustadas para seus arquivos
+        // Trilhas principais
         this.musicTracks.set('title-theme', {
             name: 'Title Theme',
             url: 'assets/audio/music/title-theme.mp3',
@@ -84,7 +115,7 @@ class RPGAudio {
     }
 
     loadSoundEffects() {
-        // Efeitos sonoros - URLs podem ser ajustadas
+        // Efeitos sonoros
         this.soundEffects.set('select', {
             name: 'Menu Select',
             url: 'assets/audio/sfx/select.wav',
@@ -119,6 +150,13 @@ class RPGAudio {
     }
 
     async playMusic(trackName, fadeIn = true) {
+        // SE USUÁRIO NÃO INTERAGIU, SALVAR COMO PENDENTE
+        if (!this.isUserInteracted) {
+            console.log(`💾 Saving music as pending: ${trackName}`);
+            this.pendingMusic = trackName;
+            return;
+        }
+        
         if (this.isMuted) return;
         
         const track = this.musicTracks.get(trackName);
@@ -127,35 +165,44 @@ class RPGAudio {
             return;
         }
 
-        // Parar música atual com fade out
-        if (this.currentMusic) {
+        // Parar música atual se for diferente da nova
+        if (this.currentMusic && this.currentMusic.src !== track.url) {
             await this.fadeOutCurrentMusic();
         }
 
         console.log(`🎵 Playing: ${track.name}`);
 
-        // Criar elemento de áudio
+        // Se já está tocando a mesma música, não fazer nada
+        if (this.currentMusic && this.currentMusic.src === track.url) {
+            console.log('🎵 Same music already playing');
+            return;
+        }
+
         const audio = new Audio();
         audio.src = track.url;
         audio.volume = fadeIn ? 0 : (track.volume * this.musicVolume);
         audio.loop = track.loop;
         
-        // Tentar reproduzir
         try {
             await audio.play();
             this.currentMusic = audio;
             
-            // Fade in se solicitado
             if (fadeIn) {
                 this.fadeInMusic(audio, track.volume * this.musicVolume);
             }
             
         } catch (error) {
-            console.warn('⚠️ Audio play failed (may require user interaction):', error);
+            console.warn('⚠️ Music play failed:', error);
+            this.showAudioHelp();
         }
     }
 
     async playSound(soundName) {
+        if (!this.isUserInteracted) {
+            console.log('⏳ Waiting for user interaction to play SFX...');
+            return;
+        }
+        
         if (this.isMuted) return;
         
         const sound = this.soundEffects.get(soundName);
@@ -175,6 +222,44 @@ class RPGAudio {
         } catch (error) {
             console.warn('⚠️ SFX play failed:', error);
         }
+    }
+
+    showAudioHelp() {
+        if (document.getElementById('audio-help-message')) return;
+        
+        const helpMessage = document.createElement('div');
+        helpMessage.id = 'audio-help-message';
+        helpMessage.innerHTML = `
+            <div class="audio-help-container">
+                <h4>🔊 Audio Help</h4>
+                <p>Click anywhere on the page to enable audio!</p>
+                <button onclick="this.parentElement.parentElement.remove()">Got it!</button>
+            </div>
+        `;
+        
+        helpMessage.style.cssText = `
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(20, 20, 50, 0.95);
+            border: 3px solid #4a4ae6;
+            border-radius: 12px;
+            padding: 2rem;
+            color: white;
+            font-family: 'Press Start 2P', cursive;
+            text-align: center;
+            z-index: 10000;
+            max-width: 300px;
+        `;
+        
+        document.body.appendChild(helpMessage);
+        
+        setTimeout(() => {
+            if (helpMessage.parentElement) {
+                helpMessage.remove();
+            }
+        }, 5000);
     }
 
     fadeInMusic(audio, targetVolume, duration = 2000) {
@@ -255,7 +340,6 @@ class RPGAudio {
         return this.isMuted;
     }
 
-    // Método para criar controles de áudio (será chamado pelo Settings)
     createAudioControls(container) {
         if (!container) return;
         
@@ -288,6 +372,9 @@ class RPGAudio {
                         <button id="mute-btn" class="mute-toggle-btn ${this.isMuted ? 'muted' : ''}">
                             ${this.isMuted ? '🔇 Muted' : '🔊 Unmuted'}
                         </button>
+                        <button id="test-audio-btn" class="test-audio-btn">
+                            Test Audio 🔊
+                        </button>
                     </div>
                 </div>
             </div>
@@ -299,6 +386,7 @@ class RPGAudio {
 
     setupControlEvents() {
         const muteBtn = document.getElementById('mute-btn');
+        const testBtn = document.getElementById('test-audio-btn');
         const musicSlider = document.getElementById('music-volume');
         const sfxSlider = document.getElementById('sfx-volume');
 
@@ -308,8 +396,13 @@ class RPGAudio {
                 muteBtn.textContent = isMuted ? '🔇 Muted' : '🔊 Unmuted';
                 muteBtn.classList.toggle('muted', isMuted);
                 
-                // Tocar som de confirmação
                 this.playSound('confirm');
+            });
+        }
+
+        if (testBtn) {
+            testBtn.addEventListener('click', () => {
+                this.playTestSound();
             });
         }
 
@@ -318,7 +411,6 @@ class RPGAudio {
                 const volume = e.target.value / 100;
                 this.setMusicVolume(volume);
                 
-                // Atualizar display
                 const valueDisplay = e.target.nextElementSibling;
                 if (valueDisplay) {
                     valueDisplay.textContent = `${e.target.value}%`;
@@ -331,19 +423,16 @@ class RPGAudio {
                 const volume = e.target.value / 100;
                 this.setSFXVolume(volume);
                 
-                // Atualizar display
                 const valueDisplay = e.target.nextElementSibling;
                 if (valueDisplay) {
                     valueDisplay.textContent = `${e.target.value}%`;
                 }
                 
-                // Tocar som de teste
                 this.playSound('cursor');
             });
         }
     }
 
-    // Método para testar áudio
     playTestSound() {
         this.playSound('confirm');
     }

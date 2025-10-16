@@ -1,4 +1,4 @@
-// js/navigation.js - ATUALIZADO COM SETTINGS
+// js/navigation.js - VERSÃO CORRIGIDA COM MÚSICAS
 function showScreen(screenId) {
     console.log(`🔄 Mudando para tela: ${screenId}`);
     
@@ -17,7 +17,7 @@ function showScreen(screenId) {
             initializeAudioControls();
         }
         
-        // Tocar música temática baseada na tela
+        // 🔥 SEMPRE TENTAR TOCAR MÚSICA DA TELA
         playScreenMusic(screenId);
     }
 }
@@ -26,7 +26,7 @@ function initializeAudioControls() {
     if (window.rpgAudio) {
         const audioContainer = document.getElementById('audio-controls-container');
         if (audioContainer) {
-            audioContainer.innerHTML = ''; // Limpar container
+            audioContainer.innerHTML = '';
             window.rpgAudio.createAudioControls(audioContainer);
         }
     }
@@ -38,15 +38,16 @@ function playScreenMusic(screenId) {
     const musicMap = {
         'title-screen': 'title-theme',
         'world-map': 'world-map',
-        'village': 'village',
+        'village': 'village', 
         'forest': 'forest',
         'dungeon': 'dungeon',
         'tower': 'tower',
-        'settings': 'title-theme' // Música suave para settings
+        'settings': 'title-theme'
     };
     
     const musicTrack = musicMap[screenId];
     if (musicTrack) {
+        // 🔥 AGORA SEMPRE CHAMA playMusic - ele decide se toca ou salva como pendente
         window.rpgAudio.playMusic(musicTrack);
     }
 }
@@ -65,7 +66,6 @@ function showConfig() {
     console.log('⚙️ Abrindo configurações...');
     showScreen('settings');
     
-    // Tocar som de confirmação
     if (window.rpgAudio) {
         window.rpgAudio.playSound('confirm');
     }
@@ -100,7 +100,6 @@ document.addEventListener('DOMContentLoaded', function() {
             
             showScreen(targetLocation);
             
-            // Tocar som de seleção
             if (window.rpgAudio) {
                 window.rpgAudio.playSound('select');
             }
